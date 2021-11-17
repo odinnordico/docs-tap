@@ -41,9 +41,9 @@ _NOTE: this example covers developing conventions with [GOLANG](https://golang.o
 The `server.go` file contains the configuration for the server as well as the logic the server applies when a workload matches the defined criteria.
 For example, adding a prometheus _sidecar_ to web apps, or adding a `workload-type=spring-boot` label to any workload that has has metadata indicating that it is a spring boot app.  
 
-**NOTE:** For this example the package `model` is used to define [resources](./reference/README.md) types.
+**NOTE:** For this example the package `model` is used to define [resources](reference/README.md) types.
 
-1. <a id='convention-1'></a>The example `server.go` sets up the `ConventionHandler` to ingest the webhook requests([PodConventionContext](./reference/pod-convention-context.md)) from the convention controller; at this point the handler only need to deal with the existing [`PodTemplateSpec`](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-template-v1/#PodTemplateSpec) and [`ImageConfig`](./reference/image-config.md).
+1. <a id='convention-1'></a>The example `server.go` sets up the `ConventionHandler` to ingest the webhook requests([PodConventionContext](reference/pod-convention-context.md)) from the convention controller; at this point the handler only need to deal with the existing [`PodTemplateSpec`](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-template-v1/#PodTemplateSpec) and [`ImageConfig`](reference/image-config.md).
     ```go
     ...
     import (
@@ -59,7 +59,7 @@ For example, adding a prometheus _sidecar_ to web apps, or adding a `workload-ty
      Where:
 
      + `template` is the predefined [PodTemplateSpec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-template-v1/#PodTemplateSpec) that the convention is going to modify.
-     + `images` are the [`ImageConfig`](./reference/image-config.md) which will be used as reference to make decisions in the conventions. In this example the type was created within the `model` package
+     + `images` are the [`ImageConfig`](reference/image-config.md) which will be used as reference to make decisions in the conventions. In this example the type was created within the `model` package
 
 2. <a id='server-2'></a>The example `server.go` also configures the convention server to listen for requests
 
@@ -94,7 +94,7 @@ For example, adding a prometheus _sidecar_ to web apps, or adding a `workload-ty
     + `NewConventionServer` is the function in charge of configure and create the *http webhook* server
     + Here is defined a basic web server defined listen in the defined port by the environment variable `PORT` or the default one (*9000*) and in the context path `/`.
 
-3. Creating the *Server Handler* which handles the request from the convention controller with the [PodConventionContext](./reference/pod-convention-context.md) serialized to JSON.
+3. Creating the *Server Handler* which handles the request from the convention controller with the [PodConventionContext](reference/pod-convention-context.md) serialized to JSON.
 
     ```go
     package webhook
@@ -272,7 +272,7 @@ When using environment variables to define whether the convention is applicable 
 
 ### <a id='ImageMetadata'></a>Matching Criteria By Image Metadata
 
-The convention controller should be used with [OCI Image](./reference/image-config.md) so it can be used to get metadate information. The ImageConfig is an struct that contains the configuration of an image, similar to the output of `docker inspect hello-world`.
+The convention controller should be used with [OCI Image](reference/image-config.md) so it can be used to get metadate information. The ImageConfig is an struct that contains the configuration of an image, similar to the output of `docker inspect hello-world`.
 
 ## <a id='install'></a> Configure and Install the Convention Server
 

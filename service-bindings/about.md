@@ -16,7 +16,7 @@ The following are not supported:
 
 ## Troubleshooting
 
-Service Bindings for Kubernetes is an implementation of the Service Binding Specification for Kubernetes, If any trouble shows up please refer to the troubleshooting guide [here](./troubleshooting.md).
+Service Bindings for Kubernetes is an implementation of the Service Binding Specification for Kubernetes, If any trouble shows up please refer to the troubleshooting guide [here](troubleshooting.md).
 
 ## Resources
 

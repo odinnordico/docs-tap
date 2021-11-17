@@ -84,4 +84,4 @@ A list of all applied conventions is stored under the annotation `conventions.ap
 
 ## Troubleshooting
 
-Convention Controller is a Kubernetes operator, and may be deployed in a cluster with other components. If you are having trouble, you can refer to the troubleshooting guide [here](./troubleshooting.md).
+Convention Controller is a Kubernetes operator, and may be deployed in a cluster with other components. If you are having trouble, you can refer to the troubleshooting guide [here](troubleshooting.md).
